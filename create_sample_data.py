@@ -46,7 +46,7 @@ application_data = {
 }
 
 application_df = pd.DataFrame(application_data)
-application_df.to_csv('data/application_record.csv', index=False)
+application_df.to_csv('data_sample/application_record.csv', index=False)
 
 # Create sample credit_record.csv
 credit_records = []
@@ -61,6 +61,6 @@ for id in range(1, n_samples + 1):
         })
 
 credit_df = pd.DataFrame(credit_records)
-credit_df.to_csv('data/credit_record.csv', index=False)
+credit_df.to_csv('data_sample/credit_record.csv', index=False)
 
 print("Sample data created successfully!")
