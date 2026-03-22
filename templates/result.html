@@ -1,0 +1,103 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - Credit Card Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/" class="back-link">← Back to Home</a>
+            <h1>Application Result</h1>
+        </header>
+
+        {% if error %}
+        <div class="result-card error">
+            <div class="result-icon">⚠️</div>
+            <h2>Error Processing Application</h2>
+            <p>{{ error }}</p>
+            <a href="/apply" class="cta-button">Try Again</a>
+        </div>
+        {% else %}
+        <div class="result-card {{ 'approved' if result.status == 'APPROVED' else 'rejected' }}">
+            <div class="result-icon">
+                {% if result.status == 'APPROVED' %}
+                ✅
+                {% else %}
+                ❌
+                {% endif %}
+            </div>
+            
+            <h2 class="result-status">Application {{ result.status }}</h2>
+            
+            <div class="probability-meter">
+                <div class="meter-label">Approval Probability</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: {{ result.probability }}%"></div>
+                </div>
+                <div class="meter-value">{{ result.probability }}%</div>
+            </div>
+
+            <div class="confidence-badge">
+                Model Confidence: {{ result.confidence }}%
+            </div>
+
+            <div class="result-details">
+                <h3>Application Summary</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Annual Income:</span>
+                        <span class="detail-value">${{ "{:,.0f}".format(result.income) }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Age:</span>
+                        <span class="detail-value">{{ result.age }} years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Employment:</span>
+                        <span class="detail-value">{{ result.employed_years }} years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Education:</span>
+                        <span class="detail-value">{{ result.education }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Occupation:</span>
+                        <span class="detail-value">{{ result.occupation }}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if result.status == 'APPROVED' %}
+            <div class="next-steps approved-steps">
+                <h3>🎉 Congratulations!</h3>
+                <p>Based on your profile, you have a high chance of credit card approval. Consider applying with your preferred bank.</p>
+            </div>
+            {% else %}
+            <div class="next-steps rejected-steps">
+                <h3>💡 Suggestions to Improve</h3>
+                <ul>
+                    <li>Increase your income or find additional income sources</li>
+                    <li>Build longer employment history</li>
+                    <li>Pay off existing debts</li>
+                    <li>Build a positive credit history</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="action-buttons">
+                <a href="/apply" class="cta-button secondary">Apply Again</a>
+                <a href="/" class="cta-button">Back to Home</a>
+            </div>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p class="disclaimer">This prediction is based on machine learning analysis and does not guarantee actual credit card approval. Final decisions are made by financial institutions based on their own criteria.</p>
+        </footer>
+    </div>
+</body>
+</html>

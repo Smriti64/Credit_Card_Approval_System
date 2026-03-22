@@ -1,0 +1,87 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Credit Card Approval System</h1>
+                <p class="tagline">Instant credit card eligibility prediction powered by AI/ML</p>
+                <a href="/apply" class="cta-button">Check Your Eligibility</a>
+            </div>
+        </header>
+
+        <section class="features">
+            <h2>How It Works</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>1. Fill Application</h3>
+                    <p>Provide your basic personal and financial information through our simple form.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>2. AI Analysis</h3>
+                    <p>Our advanced ML model analyzes your profile against thousands of data points.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>3. Instant Result</h3>
+                    <p>Get immediate feedback on your credit card eligibility with confidence score.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <h2>Why Use Our System?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <div>
+                        <h4>Instant Results</h4>
+                        <p>No waiting - get your eligibility status in seconds</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔒</span>
+                    <div>
+                        <h4>No Credit Impact</h4>
+                        <p>Soft check - doesn't affect your credit score</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <div>
+                        <h4>High Accuracy</h4>
+                        <p>Powered by state-of-the-art machine learning models</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔐</span>
+                    <div>
+                        <h4>Secure & Private</h4>
+                        <p>Your data is never stored or shared</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Check Your Eligibility?</h2>
+            <p>It only takes 2 minutes to complete the application</p>
+            <a href="/apply" class="cta-button">Start Application</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Credit Card Approval System. All rights reserved.</p>
+            <p class="disclaimer">This is a predictive tool and does not guarantee actual credit card approval.</p>
+        </footer>
+    </div>
+</body>
+</html>
