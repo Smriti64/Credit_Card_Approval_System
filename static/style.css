@@ -527,3 +527,19 @@ footer {
         margin: 0 10px 40px;
     }
 }
+
+/* Logo */
+.logo {
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 80px;
+        margin-bottom: 20px;
+    }
+}
